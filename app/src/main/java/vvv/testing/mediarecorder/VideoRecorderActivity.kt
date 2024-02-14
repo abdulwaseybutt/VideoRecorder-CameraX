@@ -149,7 +149,6 @@ class VideoRecorderActivity : AppCompatActivity() {
 
     private fun captureVideo() {
         capture.setImageResource(R.drawable.round_stop_circle_24)
-        startRecordingTimer()
 
         val recording1: Recording? = recording
         if (recording1 != null) {
@@ -157,7 +156,10 @@ class VideoRecorderActivity : AppCompatActivity() {
             recording = null
             stopRecordingTimer()
             return
+        } else {
+            startRecordingTimer()
         }
+
         val name = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.getDefault()).format(
             System.currentTimeMillis()
         )
